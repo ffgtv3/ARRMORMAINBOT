@@ -2,27 +2,22 @@ name: Discord Bot
 
 on:
   push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
+    branches: [ main ]
 
 jobs:
-
   build:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v2
     - name: Set up Python
-      uses: actions/setup-python@v4
+      uses: actions/setup-python@v2
       with:
         python-version: '3.x'
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install discord.py
+        pip install -r requirements.txt
     - name: Run bot
-      env:
-        BOT_TOKEN: ${{ secrets.BOT_TOKEN }}
       run: |
-        python bot.py
+        python bot.py ${{ MTI0NDYyMzU3NDE2MjIxMDgyNw.GZcA7_.PmPlA6i2rl8MeGL3j7Bngh23_V2yo820vZexHQ }}
